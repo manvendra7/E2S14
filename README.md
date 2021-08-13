@@ -1,5 +1,132 @@
-## TASK 2: 
-Reproduce [these](https://mccormickml.com/2019/07/22/BERT-fine-tuning/) results, and show output on 5 samples.
+# Assignment: 
+
+* TASK 1: Train BERT using the code mentioned [here](https://drive.google.com/file/d/1Zp2_Uka8oGDYsSe5ELk-xz6wIX8OIkB7/view)  on the Squad Dataset for 20% overall samples (1/5 Epochs). Show results on 5 samples. 
+* TASK 2: Reproduce [these](https://mccormickml.com/2019/07/22/BERT-fine-tuning/) results, and show output on 5 samples.
+* TASK 3: Reproduce the training explained in this [blog](https://towardsdatascience.com/bart-for-paraphrasing-with-simple-transformers-7c9ea3dfdd8c). You can decide to pick fewer datasets. 
+
+
+## Task 1
+
+### BERT
+Bidirectional Encoder Representation from Transformer (BERT), as the name suggests, is based on the transformer model. We can perceive BERT as the transformer, but only with the encoder.
+
+We  feed the sentence as input to the transformer's encoder and it returns the representation for each word in the sentence as an output. Well, that's exactly what BERT is – an Encoder Representation from Transformer. Okay, so what about the term Bidirectional?
+
+The encoder of the transformer is bidirectional in nature since it can read a sentence in both directions. Thus, BERT is basically the Bidirectional Encoder Representation obtained from the Transformer.
+
+Let's understand how BERT is bidirectional encoder representation from the transformer with the help of an example. Let's take the same sentences we saw in the previous section.
+
+Say we have a sentence A: 'He got bit by Python'. Now, we feed this sentence as an input to the transformer's encoder and get the contextual representation (embedding) of each word in the sentence as an output. Once we feed the sentence as an input to the encoder, the encoder understands the context of each word in the sentence using the multi-head attention mechanism (relates each word in the sentence to all the words in the sentence to learn the relationship and contextual meaning of words) and returns the contextual representation of each word in the sentence as an output.
+
+![image](https://user-images.githubusercontent.com/46154140/129351512-26530dbc-7b1d-4365-9dd2-6d93616ccb18.png)
+
+
+### Training Log
+
+![image](https://user-images.githubusercontent.com/46154140/129351848-7ce34b2f-028b-4fb0-aa53-a75c454fe70f.png)
+
+    Training Loss 1.251854658126831
+
+
+### Evaluation Results
+```
+Evaluating:   0%|          | 0/425 [00:00<?, ?it/s]***** Running evaluation *****
+  Num examples = 13600
+  Batch size = 32
+Evaluating: 100%|██████████| 425/425 [03:37<00:00,  1.95it/s]
+{
+  "exact": 49.38937084140487,
+  "f1": 54.0109620487612,
+  "total": 11873,
+  "HasAns_exact": 64.6255060728745,
+  "HasAns_f1": 73.88194203862014,
+  "HasAns_total": 5928,
+  "NoAns_exact": 34.19680403700589,
+  "NoAns_f1": 34.19680403700589,
+  "NoAns_total": 5945,
+  "best_exact": 57.01170723490272,
+  "best_exact_thresh": -5.869788765907288,
+  "best_f1": 59.45140875382585,
+  "best_f1_thresh": -5.801982164382935
+}
+```
+
+### Model Prediction on random test set
+
+******************************************************************************************
+
+question         >> What was the Grand 1401 building renamed as?
+
+Answer BY Model  >> San Joaquin Light & Power Building
+
+******************************************************************************************
+******************************************************************************************
+
+question         >> What is the result of rebellion according to Black's Law Dictionary?
+
+Answer BY Model  >> non-violence
+
+******************************************************************************************
+******************************************************************************************
+
+question         >> Who was the first geologist?
+
+Answer BY Model  >> James Hutton
+
+******************************************************************************************
+******************************************************************************************
+
+question         >> What does not regularly use input coding as its concrete choice?
+
+Answer BY Model  >> 
+
+******************************************************************************************
+**********************************************************************************************************************************
+
+question         >> Evolution of what part of the immune system occurred in the evolutionary ancestor of jawed vertebrates?
+
+Answer BY Model  >> adaptive immune system
+
+******************************************************************************************
+******************************************************************************************
+
+question         >> What is the virus in humans that causes cervical cancer?
+
+Answer BY Model  >> papillomavirus
+
+******************************************************************************************
+******************************************************************************************
+
+question         >> What is included in Medication Therapy Management?
+
+Answer BY Model  >> clinical services
+
+******************************************************************************************
+******************************************************************************************
+
+question         >> How did Yale introduce a new era in football?
+
+Answer BY Model  >> evolution of the college game
+
+******************************************************************************************
+******************************************************************************************
+
+question         >> What river does Berlin straddle?
+
+Answer BY Model  >> Vistula River
+
+******************************************************************************************
+******************************************************************************************
+
+question         >> How many nations are within the Amazon Basin?
+
+Answer BY Model  >> 
+
+******************************************************************************************
+
+
+
+## Task 2
 
 ## BERT Fine-Tuning With Pytorch
 
